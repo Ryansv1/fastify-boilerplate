@@ -1,4 +1,4 @@
-import { test, expect, beforeAll, afterAll } from 'vitest';
+import { test, expect } from 'vitest';
 import { FastifyInstance } from 'fastify';
 
 let app: FastifyInstance;

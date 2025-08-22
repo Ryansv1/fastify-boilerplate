@@ -14,6 +14,8 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod';
+import { HTTPErrorHandler } from './utils/http';
+import z from 'zod';
 
 declare module 'fastify' {
   interface FastifyInstance {
@@ -30,9 +32,15 @@ export async function AppFactory() {
     },
   });
 
+  
+
   app.setValidatorCompiler(validatorCompiler);
   app.setSerializerCompiler(serializerCompiler);
   app.withTypeProvider<ZodTypeProvider>();
+  app.setErrorHandler(async function (err, request, reply) {
+    await HTTPErrorHandler(this, err, request, reply);
+  });
+
 
   app.register(helmet);
   app.register(env);
@@ -42,6 +50,23 @@ export async function AppFactory() {
   app.register(rateLimit);
 
   app.register(healthcheck);
+
+  const teste = z.object({
+    teste: z.boolean(),
+    dsadadas: z.string(),
+    rosladjoqwj: z.number(),
+  });
+  app.withTypeProvider<ZodTypeProvider>().post(
+    '/teste',
+    {
+      schema: {
+        body: teste,
+      },
+    },
+    () => {
+      throw new Error('TSDASDASDASDAS');
+    },
+  );
 
   await app.ready();
 
