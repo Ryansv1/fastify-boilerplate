@@ -1,0 +1,1 @@
+{"version":3,"file":"scalar.js","sourceRoot":"","sources":["../../src/plugins/scalar.ts"],"names":[],"mappings":";;;;;AAAA,0FAAmD;AACnD,oEAAgC;AAEhC,kBAAe,IAAA,wBAAE,EAAC,KAAK,EAAE,GAAG,EAAE,EAAE;IAC9B,MAAM,GAAG,CAAC,QAAQ,CAAC,+BAAM,EAAE;QACzB,WAAW,EAAE,YAAY;QACzB,aAAa,EAAE;YACb,KAAK,EAAE,QAAQ;SAChB;KACF,CAAC,CAAC;AACL,CAAC,CAAC,CAAC"}
